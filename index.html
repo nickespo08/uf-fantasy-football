@@ -412,7 +412,7 @@
         <tr><td class="owner">Michael Gold</td><td class="team">Drake Goff til it Ertz</td><td class="num mono">4</td><td class="num mono">25</td><td class="num mono">31</td><td class="num mono">.446</td><td class="num mono">6057.5</td><td class="num mono">6129.5</td><td></td></tr>
         <tr><td class="owner">Conrad Hellwege</td><td class="team">Blinded by da Rice</td><td class="num mono">4</td><td class="num mono">19</td><td class="num mono">37</td><td class="num mono">.339</td><td class="num mono">6417.0</td><td class="num mono">6996.5</td><td></td></tr>
         <tr><td class="owner">Jonah Bennett</td><td class="team">Strange Gay</td><td class="num mono">3</td><td class="num mono">13</td><td class="num mono">29</td><td class="num mono">.310</td><td class="num mono">4429.2</td><td class="num mono">5185.1</td><td></td></tr>
-        <tr><td class="owner">Andrew Graeler <span class="placeholder-tag">(departed)</span></td><td class="team">CoDler Murray</td><td class="num mono">1</td><td class="num mono">3</td><td class="num mono">11</td><td class="num mono">.214</td><td class="num mono">1542.1</td><td class="num mono">1836.3</td><td></td></tr>
+        <tr><td class="owner">Drew Graeler <span class="placeholder-tag">(departed)</span></td><td class="team">CoDler Murray</td><td class="num mono">1</td><td class="num mono">3</td><td class="num mono">11</td><td class="num mono">.214</td><td class="num mono">1542.1</td><td class="num mono">1836.3</td><td></td></tr>
         </tbody>
       </table>
       <p class="note">*2022 title was split &mdash; see note below. Click any column header to sort. "Current team" is each owner's most recent (2025, or final season played) team name.</p>
@@ -641,7 +641,7 @@
         <tr class="champ-row"><td class="num mono">1</td><td class="owner">David Khaskin</td><td class="team">Qwandale Dingle</td><td class="num mono">8-6</td><td class="num mono">1632.7</td><td class="num mono">1523.9</td><td class="num mono">+7.8</td></tr>
         <tr><td class="num mono">2</td><td class="owner">Vinay Krishnadas</td><td class="team">Team ViNeal</td><td class="num mono">8-6</td><td class="num mono">1568.5</td><td class="num mono">1534.7</td><td class="num mono">+2.4</td></tr>
         <tr><td class="num mono">3</td><td class="owner">Conrad Hellwege</td><td class="team">$ No Phly Zone</td><td class="num mono">5-9</td><td class="num mono">1567.6</td><td class="num mono">1740.7</td><td class="num mono">-12.4</td></tr>
-        <tr><td class="num mono">4</td><td class="owner">Andrew Graeler</td><td class="team">CoDler Murray</td><td class="num mono">3-11</td><td class="num mono">1542.1</td><td class="num mono">1836.3</td><td class="num mono">-21.0</td></tr>
+        <tr><td class="num mono">4</td><td class="owner">Drew Graeler</td><td class="team">CoDler Murray</td><td class="num mono">3-11</td><td class="num mono">1542.1</td><td class="num mono">1836.3</td><td class="num mono">-21.0</td></tr>
         </tbody>
       </table>
       <h4 style="font-size:13px;color:var(--gold-dim);font-family:'IBM Plex Mono',monospace;text-transform:none;margin:20px 0 8px;">Dondo</h4>
@@ -705,6 +705,13 @@
     <p style="color:var(--chalk-dim);font-size:14px;margin:6px 0 0;">Team names shown are each owner's most recent (2025). Photos and fun facts coming soon &mdash; send them over and I'll drop them in.</p>
   </div>
   <div class="bio-grid" id="bio-grid"></div>
+
+  <div class="panel" style="margin-top:24px;">
+    <div class="eyebrow">Former owners</div>
+    <h2 style="margin:0 0 4px;border:none;padding:0;font-size:20px;color:var(--gold);">Departed</h2>
+    <p style="color:var(--chalk-dim);font-size:14px;margin:6px 0 16px;">No longer in the league.</p>
+    <div class="bio-grid" id="bio-grid-departed"></div>
+  </div>
 </section>
 
 <!-- ============ RIVALRIES ============ -->
@@ -725,6 +732,20 @@
   <div class="rivalry-card">
     <div class="rivalry-head">Dylan Friedland <span class="vs">vs</span> Justin Friedland</div>
     <div class="rivalry-sub">Start Higgins in yo butt twin vs RJ Harvey Dent</div>
+    <div class="rivalry-record placeholder-tag">All-time head-to-head record: TBD</div>
+    <div class="fact placeholder-tag">Notable moments: TBD</div>
+  </div>
+
+  <div class="rivalry-card">
+    <div class="rivalry-head">Conrad Hellwege <span class="vs">vs</span> Michael Gold</div>
+    <div class="rivalry-sub">Blinded by da Rice vs Drake Goff til it Ertz</div>
+    <div class="rivalry-record placeholder-tag">All-time head-to-head record: TBD</div>
+    <div class="fact placeholder-tag">Notable moments: TBD</div>
+  </div>
+
+  <div class="rivalry-card">
+    <div class="rivalry-head">Logan Fraser <span class="vs">vs</span> Nicholas Esposito</div>
+    <div class="rivalry-sub">Josh Allen's Shorts vs Spo</div>
     <div class="rivalry-record placeholder-tag">All-time head-to-head record: TBD</div>
     <div class="fact placeholder-tag">Notable moments: TBD</div>
   </div>
@@ -762,6 +783,21 @@
       '<div class="teamname">'+team+'</div>' +
       '<div class="fact placeholder-tag">Fun fact: add me</div>';
     grid.appendChild(card);
+  });
+
+  var departed = [["Drew Graeler","CoDler Murray"]];
+  var gridDeparted = document.getElementById('bio-grid-departed');
+  departed.forEach(function(o){
+    var name = o[0], team = o[1];
+    var initials = name.split(' ').map(function(w){return w[0];}).join('');
+    var card = document.createElement('div');
+    card.className = 'bio-card';
+    card.innerHTML =
+      '<div class="bio-photo">'+initials+'</div>' +
+      '<h4>'+name+'</h4>' +
+      '<div class="teamname">'+team+' &middot; 2022</div>' +
+      '<div class="fact placeholder-tag">Fun fact: add me</div>';
+    gridDeparted.appendChild(card);
   });
 
   document.querySelectorAll('.tab-btn').forEach(function(btn){
